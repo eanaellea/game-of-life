@@ -41,6 +41,21 @@ public class Map {
         return liveCells.contains(coordinates);
     }
 
+    public void display() {
+        ArrayList<Coordinates> liveCells = this.getLiveCells();
+        for (int i = 0; i < this.height; i++) {
+            for (int j = 0; j < this.width; j++) {
+                Coordinates currentCoordinates = new Coordinates(j, i);
+                if (isLiveCell(currentCoordinates)) {
+                    System.out.print(liveCellChar);
+                } else {
+                    System.out.print(deadCellChar);
+                }
+            }
+            System.out.println();
+        }
+    }
+
     public ArrayList<Coordinates> getLiveCells() {
         return this.liveCells;
     }
